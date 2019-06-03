@@ -22,6 +22,6 @@ notifications:
   #   on_failure: always
   email:
     recipients:
-      - dragos.cirjan+ssl-server@gmail.com
+      - dragos.cirjan+folium-py@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
