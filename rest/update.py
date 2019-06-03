@@ -17,29 +17,23 @@ limitations under the License.
 import abc
 
 
-class Create:
+class Update:
     """
-    Interface for implementing CRUD Create method.
-    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+    Interface for implementing REST Update (Patch) method.
+    :see https://en.wikipedia.org/wiki/Representational_state_transfer
     """
 
     @abc.abstractmethod
-    def create(self, items, criteria: dict = {}) -> list:
+    def update(self, id, items, options: dict = {}) -> dict:
         """
-        Create new resource(s).
-        Can receive a item or a set of items to create.
+        Update/patch a resource in the database.
+        If multiple items are given, all patches will be applied in the given order.
 
-        create({ "text": "I really have to iron" })
+        update(id, { "text": "I really have to iron" })
 
-        or
-
-        create([
-          { "text": "I really have to iron" },
-          { "text": "Do laundry" }
-        ])
-
+        :param id: int|str          id of item to be patched
         :param items: dict|list     can be a single element or an array of elements
-        :param criteria: dict       TODO: Not used, to be defined
-        :return: list               will return an array of ids for the models that have been saved in the database
+        :param options: dict        TODO: Not used, to be defined
+        :return: dict               resource data
         """
         pass

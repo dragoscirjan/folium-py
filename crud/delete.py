@@ -19,15 +19,19 @@ import abc
 
 class Delete:
     """
-    Interface for implementing CRUD Delete method.
+    Interface for implementing CRUD Delete (Destroy) method.
     :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+    """
+
+    OPTION_SOFT_DELETE = '__soft_delete'
+    """
+    Implement in options, if you wish to soft delete items.
     """
 
     @abc.abstractmethod
     def delete(self, items, criteria: list = [], options: dict = {}):
         """
         Delete resource(s) from the database.
-        If no items and not criteria are specified, all items in the table will be deleted.
 
         delete({ "text": "I really have to iron" })
 
@@ -43,6 +47,12 @@ class Delete:
         delete([], [
           ( 'id', '>', 10 )
         ])
+
+        or
+
+        delete([], [
+          ( 'id', '>', 10 )
+        ], { '__soft_delete': True })
 
         :param items: dict|list     can be a single element or an array of elements
         :param criteria: list       (list of tuples) implementing criteria by which to delete

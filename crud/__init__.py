@@ -12,18 +12,18 @@ class CRUD(Create, Read, Update, Delete):
     :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
     """
 
-    @abc.abstractmethod
-    def create(self, items, criteria: dict = {}) -> list:
-        pass
-
-    @abc.abstractmethod
-    def read(self, criteria: list = [], fields: list = [], options: dict = {}):
-        pass
-
-    @abc.abstractmethod
-    def update(self, items, criteria: list = [], options: dict = {}):
-        pass
-
-    @abc.abstractmethod
-    def delete(self, items, criteria: list = [], options: dict = {}):
-        pass
+    # @abc.abstractmethod
+    # def create(self, items, criteria: dict = {}) -> list:
+    #     pass
+    #
+    # @abc.abstractmethod
+    # def read(self, criteria: list = [], fields: list = [], options: dict = {}):
+    #     pass
+    #
+    # @abc.abstractmethod
+    # def update(self, items, criteria: list = [], options: dict = {}):
+    #     pass
+    #
+    # @abc.abstractmethod
+    # def delete(self, items, criteria: list = [], options: dict = {}):
+    #     pass

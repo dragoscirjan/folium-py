@@ -17,34 +17,25 @@ limitations under the License.
 import abc
 
 
-class Update:
+class Replace:
     """
-    Interface for implementing CRUD Update (Modify) method.
-    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+    Interface for implementing REST Replace method.
+    :see https://en.wikipedia.org/wiki/Representational_state_transfer
     """
 
     @abc.abstractmethod
-    def update(self, items, criteria: list = [], options: dict = {}):
+    def replace(self, items, options: dict = {}) -> list:
         """
-        Update/replace a resource or set of resources in the database.
+        Replace a resource or set of resources in the database.
         If a resource does not exists when passed to the update method, it will be created.
-
-        If `criteria` is given, method will then function as an 'update/patch' handler, not as a 'replace' one.
-        If `criteria` is given and `items` are multiple, function will apply all all items as patch.
-        If `criteria` is not give, and resource is not having an ID, method will try to create the resource.
-
-        update({ "text": "I really have to iron" }, [ ( 'id', 10 ) ]) # behave as patch (update)
-
-        or
-
-        update([
+        
+        replace([
           { "text": "I really have to iron", "id": 10 }, # this item will be replaced
-          { "text": "Do laundry" ] # this item will be created
+          { "text": "Do laundry" } # this item will be created
         ])
 
         :param items: dict|list     can be a single element or an array of elements
-        :param criteria: list       (list of tuples) criteria to filter database data
-        :param options: dict        TODO: to be defined
+        :param options: dict        TODO: Not used, to be defined
         :return: list               will return the ids of the elements updated
         """
         pass
