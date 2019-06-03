@@ -5,6 +5,11 @@ import typing
 
 T = typing.TypeVar('T')
 
+class ModelValidationError(Exception):
+    """
+    Exception thrown by data validation for Models
+    """
+
 
 class Model(object):
     """
@@ -69,13 +74,18 @@ class Model(object):
 class BaseModel(Model):
 
     _attribute_types = {}
-
-    _attribute_map = {}
+    """
+    Key represents property name, while value represents the type of the property
+    :type dict
+    """
 
     def __init__(self, data={}):
         if type(data) == str:
             data = json.loads(data)
-        self.valida
+        self.validate()
+        for key in self._attribute_types.keys():
+            if hasattr(data, key):
+                setattr(self, key, data.get(key, None))
         pass
 
     @staticmethod
@@ -144,6 +154,7 @@ class BaseModel(Model):
     def validate(self, data: dict = None) -> bool:
         """
         Validate data given to Model.
+        :raises ModelValidationError
         :param data: dict
         :return: bool True if data is valid, False otherwise
         """
