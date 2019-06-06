@@ -60,3 +60,28 @@ class Delete:
         :return: None
         """
         pass
+
+
+
+class DeleteQuery:
+    """
+    Interface for implementing CRUD Delete (Destroy) query.
+    """
+
+    OPTION_SOFT_DELETE = '__soft_delete'
+    """
+    Implement in options, if you wish to soft delete items.
+    """
+
+    @abc.abstractmethod
+    def delete(self, items, criteria: list = [], options: dict = {}) -> str:
+        """
+        Generate string query for `Delete.delete` method.
+
+        :see Delete.delete
+        :param items: dict|list     can be a single element or an array of elements
+        :param criteria: list       (list of tuples) implementing criteria by which to delete
+        :param options: dict        TODO: Not used, to be defined
+        :return: str
+        """
+        pass

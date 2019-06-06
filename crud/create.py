@@ -43,3 +43,21 @@ class Create:
         :return: list               will return an array of ids for the models that have been saved in the database
         """
         pass
+
+
+class CreateQuery:
+    """
+    Interface for implementing CRUD Create query.
+    """
+
+    @abc.abstractmethod
+    def create(self, items, criteria: dict = {}) -> str:
+        """
+        Generate string query for `Create.create` method.
+
+        :see Create.create
+        :param items: dict|list     can be a single element or an array of elements
+        :param criteria: dict       TODO: Not used, to be defined
+        :return: str
+        """
+        pass
