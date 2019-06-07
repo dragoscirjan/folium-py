@@ -17,13 +17,22 @@ limitations under the License.
 import abc
 
 
-class Read:
+class ReadBase:
+    """
+    Common starter interface, for constants.
+    """
+
+    OPTION_COUNT = '__count'
+    """
+    Option for returning read count
+    """
+
+
+class Read(ReadBase):
     """
     Interface for implementing CRUD Read (Retrieve) method.
     :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
     """
-
-    OPTION_COUNT = '__count'
 
     @abc.abstractmethod
     def read(self, criteria: list = [], fields: list = [], options: dict = {}):
@@ -53,12 +62,10 @@ class Read:
         pass
 
 
-class ReadQuery:
+class ReadQuery(ReadBase):
     """
     Interface for implementing CRUD Read (Retrieve) query.
     """
-
-    OPTION_COUNT = '__count'
 
     @abc.abstractmethod
     def read(self, criteria: list = [], fields: list = [], options: dict = {}) -> str:

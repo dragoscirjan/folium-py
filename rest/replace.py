@@ -39,3 +39,20 @@ class Replace:
         :return: list               will return the ids of the elements updated
         """
         pass
+
+class ReplaceQuery:
+    """
+    Interface for implementing REST Replace query.
+    """
+
+    @abc.abstractmethod
+    def replace(self, items, options: dict = {}) -> str:
+        """
+        Generate string query for `Replace.replace` method.
+
+        :see Replace.replace
+        :param items: dict|list     can be a single element or an array of elements
+        :param options: dict        TODO: Not used, to be defined
+        :return: str
+        """
+        pass

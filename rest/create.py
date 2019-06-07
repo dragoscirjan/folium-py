@@ -14,10 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from ..crud import Create as CrudCreate
+from ..crud import Create as CrudCreate, CreateQuery as CrudCreateQuery
 
 
 class Create(CrudCreate):
+    """
+    Interface for implementing REST Create method.
+    :see https://en.wikipedia.org/wiki/Representational_state_transfer
+    """
+
+class CreateQuery(CrudCreateQuery):
     """
     Interface for implementing REST Create method.
     :see https://en.wikipedia.org/wiki/Representational_state_transfer

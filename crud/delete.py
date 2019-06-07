@@ -16,16 +16,21 @@ limitations under the License.
 
 import abc
 
-
-class Delete:
+class DeleteBase:
     """
-    Interface for implementing CRUD Delete (Destroy) method.
-    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+    Common starter interface, for constants.
     """
 
     OPTION_SOFT_DELETE = '__soft_delete'
     """
     Implement in options, if you wish to soft delete items.
+    """
+
+
+class Delete(DeleteBase):
+    """
+    Interface for implementing CRUD Delete (Destroy) method.
+    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
     """
 
     @abc.abstractmethod
@@ -63,14 +68,9 @@ class Delete:
 
 
 
-class DeleteQuery:
+class DeleteQuery(DeleteBase):
     """
     Interface for implementing CRUD Delete (Destroy) query.
-    """
-
-    OPTION_SOFT_DELETE = '__soft_delete'
-    """
-    Implement in options, if you wish to soft delete items.
     """
 
     @abc.abstractmethod
