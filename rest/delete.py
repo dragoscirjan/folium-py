@@ -14,10 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from ..crud import Delete as CrudDelete
+from ..crud import Delete as CrudDelete, DeleteQuery as CrudDeleteQuery
 
 
 class Delete(CrudDelete):
+    """
+    Interface for implementing REST Delete method.
+    :see https://en.wikipedia.org/wiki/Representational_state_transfer
+    """
+
+class DeleteQuery(CrudDeleteQuery):
     """
     Interface for implementing REST Delete method.
     :see https://en.wikipedia.org/wiki/Representational_state_transfer

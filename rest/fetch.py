@@ -17,13 +17,22 @@ limitations under the License.
 import abc
 
 
-class Fetch:
+class FetchBase:
+    """
+    Common starter interface, for constants.
+    """
+    
+    OPTION_COUNT = '__count'
+    """
+    Option for returning fetch count
+    """
+
+
+class Fetch(FetchBase):
     """
     Interface for implementing REST Fetch method.
     :see https://en.wikipedia.org/wiki/Representational_state_transfer
     """
-    
-    OPTION_COUNT = '__count'
 
     @abc.abstractmethod
     def fetch(self, criteria: list = [], fields: list = [], options: dict = {}):
@@ -49,5 +58,24 @@ class Fetch:
         :param options: dict    options used by method:
                                 __count - if True, will return count of resources in stead of list
         :return: list|int       array (or count) of resources matching the criteria (and having only the fields required)
+        """
+        pass
+
+class FetchQuery(FetchBase):
+    """
+    Interface for implementing REST Fetch query.
+    """
+
+    @abc.abstractmethod
+    def fetch(self, criteria: list = [], fields: list = [], options: dict = {}) -> str:
+        """
+        Generate string query for `Fetch.fetch` method.
+
+        :see Fetch.fetch
+        :param criteria: list   (list of tuples) criteria to filter database data
+        :param fields: list     list of fields to read, can be empty (will read al fields)
+        :param options: dict    options used by method:
+                                __count - if True, will return count of resources in stead of list
+        :return: str
         """
         pass

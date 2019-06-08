@@ -37,3 +37,22 @@ class Update:
         :return: dict               resource data
         """
         pass
+
+
+class UpdateQuery:
+    """
+    Interface for implementing REST Update query.
+    """
+
+    @abc.abstractmethod
+    def update(self, id, items, options: dict = {}) -> str:
+        """
+        Generate string query for `Update.update` method.
+
+        :see Update.update
+        :param id: int|str          id of item to be patched
+        :param items: dict|list     can be a single element or an array of elements
+        :param options: dict        TODO: Not used, to be defined
+        :return: str
+        """
+        pass

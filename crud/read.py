@@ -17,13 +17,22 @@ limitations under the License.
 import abc
 
 
-class Read:
+class ReadBase:
+    """
+    Common starter interface, for constants.
+    """
+
+    OPTION_COUNT = '__count'
+    """
+    Option for returning read count
+    """
+
+
+class Read(ReadBase):
     """
     Interface for implementing CRUD Read (Retrieve) method.
     :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
     """
-
-    OPTION_COUNT = '__count'
 
     @abc.abstractmethod
     def read(self, criteria: list = [], fields: list = [], options: dict = {}):
@@ -49,5 +58,25 @@ class Read:
         :param options: dict    options used by method:
                                 __count - if True, will return count of resources in stead of list
         :return: list|int       array (or count) of resources matching the criteria (and having only the fields required)
+        """
+        pass
+
+
+class ReadQuery(ReadBase):
+    """
+    Interface for implementing CRUD Read (Retrieve) query.
+    """
+
+    @abc.abstractmethod
+    def read(self, criteria: list = [], fields: list = [], options: dict = {}) -> str:
+        """
+        Generate string query for `Read.read` method.
+
+        :see Read.read
+        :param criteria: list   (list of tuples) criteria to filter database data
+        :param fields: list     list of fields to read, can be empty (will read al fields)
+        :param options: dict    options used by method:
+                                __count - if True, will return count of resources in stead of list
+        :return: str
         """
         pass

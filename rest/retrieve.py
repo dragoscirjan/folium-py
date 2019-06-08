@@ -43,3 +43,21 @@ class Retrieve:
         :return: dict           resource data
         """
         pass
+
+class RetrieveQuery:
+    """
+    Interface for implementing REST Retrieve query.
+    """
+
+    @abc.abstractmethod
+    def retrieve(self, id, fields: list = [], options: dict = {}) -> str:
+        """
+        Generate string query for `Retrieve.retrieve` method.
+
+        :see Retrieve.retrieve
+        :param id: int|str      ID of the resource to retreive
+        :param fields: list     fields to obtain (can be empty - will return all fields)
+        :param options: dict    TODO: Not used, to be defined
+        :return: str
+        """
+        pass

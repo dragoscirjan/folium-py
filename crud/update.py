@@ -24,7 +24,7 @@ class Update:
     """
 
     @abc.abstractmethod
-    def update(self, items, criteria: list = [], options: dict = {}):
+    def update(self, items, criteria: list = [], options: dict = {}) -> list:
         """
         Update/replace a resource or set of resources in the database.
         If a resource does not exists when passed to the update method, it will be created.
@@ -46,5 +46,24 @@ class Update:
         :param criteria: list       (list of tuples) criteria to filter database data
         :param options: dict        TODO: to be defined
         :return: list               will return the ids of the elements updated
+        """
+        pass
+
+class UpdateQuery:
+    """
+    Interface for implementing CRUD Update (Modify) method.
+    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+    """
+
+    @abc.abstractmethod
+    def update(self, items, criteria: list = [], options: dict = {}) -> str:
+        """
+        Generate string query for `Update.update` method.
+
+        :see Update.update
+        :param items: dict|list     can be a single element or an array of elements
+        :param criteria: list       (list of tuples) criteria to filter database data
+        :param options: dict        TODO: to be defined
+        :return: str
         """
         pass

@@ -16,16 +16,21 @@ limitations under the License.
 
 import abc
 
-
-class Delete:
+class DeleteBase:
     """
-    Interface for implementing CRUD Delete (Destroy) method.
-    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+    Common starter interface, for constants.
     """
 
     OPTION_SOFT_DELETE = '__soft_delete'
     """
     Implement in options, if you wish to soft delete items.
+    """
+
+
+class Delete(DeleteBase):
+    """
+    Interface for implementing CRUD Delete (Destroy) method.
+    :see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
     """
 
     @abc.abstractmethod
@@ -58,5 +63,25 @@ class Delete:
         :param criteria: list       (list of tuples) implementing criteria by which to delete
         :param options: dict        TODO: Not used, to be defined
         :return: None
+        """
+        pass
+
+
+
+class DeleteQuery(DeleteBase):
+    """
+    Interface for implementing CRUD Delete (Destroy) query.
+    """
+
+    @abc.abstractmethod
+    def delete(self, items, criteria: list = [], options: dict = {}) -> str:
+        """
+        Generate string query for `Delete.delete` method.
+
+        :see Delete.delete
+        :param items: dict|list     can be a single element or an array of elements
+        :param criteria: list       (list of tuples) implementing criteria by which to delete
+        :param options: dict        TODO: Not used, to be defined
+        :return: str
         """
         pass
