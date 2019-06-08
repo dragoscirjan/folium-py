@@ -8,5 +8,5 @@ setup(name='Folium',
       author='Dragos Cirjan',
       author_email='dragos.cirjan@gmail.com',
       url='https://github.com/dragoscirjan/folium-py',
-      packages=['folium'],
+      packages=['crud', 'model', 'rest'],
      )
