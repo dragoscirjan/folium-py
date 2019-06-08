@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from ..crud import Delete as CrudDelete, DeleteQuery as CrudDeleteQuery
+from folium.crud import Delete as CrudDelete, DeleteQuery as CrudDeleteQuery
 
 
 class Delete(CrudDelete):

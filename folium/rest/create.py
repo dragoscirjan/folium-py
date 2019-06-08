@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from ..crud import Create as CrudCreate, CreateQuery as CrudCreateQuery
+from folium.crud import Create as CrudCreate, CreateQuery as CrudCreateQuery
 
 
 class Create(CrudCreate):
