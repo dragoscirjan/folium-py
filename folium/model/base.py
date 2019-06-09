@@ -24,8 +24,8 @@ class Model(object):
         """
         pass
 
-    @abc.abstractmethod
     @staticmethod
+    @abc.abstractmethod
     def from_dict(data: dict, klass: typing.Type[T]) -> T:
         """
         Obtain Model from Dictionary
@@ -35,8 +35,8 @@ class Model(object):
         """
         pass
 
-    @abc.abstractmethod
     @staticmethod
+    @abc.abstractmethod
     def from_json(data: str, klass: typing.Type[T]) -> T:
         """
         Obtain Model from JSON String
