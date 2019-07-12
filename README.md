@@ -20,6 +20,8 @@
 [![Buy an item on our wishlist for us](https://img.shields.io/badge/wishlist-donate-yellow.svg)](https://dragoscirjan.me/wishlist) -->
 
 
+https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven
+
 
 API designers, please note the following rules before calling your creation a REST API:
 
